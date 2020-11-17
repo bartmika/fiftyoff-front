@@ -1,6 +1,5 @@
 const REGISTER_KEY = "register_data";
 
-
 export function postLogin(postData, onSuccessCallbackFunc, onFailureCallbackFunc) {
     let userArrayString = localStorage.getItem(REGISTER_KEY);
 

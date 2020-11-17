@@ -25,6 +25,9 @@ function RegisterComponent(props) {
             <br />
             <br />
             <Link to="/login">Login</Link>
+            <br />
+            <br />
+            <Link to="/">Back</Link>
         </>
     );
 }

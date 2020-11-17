@@ -24,7 +24,12 @@ function LoginComponent(props) {
             <br />
             <br />
             <button onClick={onSubmitClick}>Submit</button>
+            <br />
+            <br />
             <Link to="/register">Register</Link>
+            <br />
+            <br />
+            <Link to="/">Back</Link>
         </>
     )
 }
