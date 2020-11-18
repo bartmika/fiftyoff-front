@@ -1,3 +1,5 @@
+import shortid from "shortid";
+
 const DEALS_KEY = "deals_data";
 
 
@@ -22,6 +24,9 @@ export function postCreateDeal(postData, onSuccessCallbackFunc, onFailureCallbac
         textData = emptyArrayString;
     }
 
+    // Attach a unique ID to our `postData`.
+    postData.id = shortid.generate();
+
     // Convert the TEXT data into an ARRAY
     const arrayData = JSON.parse(textData);
 
@@ -40,19 +45,27 @@ export function postCreateDeal(postData, onSuccessCallbackFunc, onFailureCallbac
 
 export function getListDeals(onSuccessCallbackFunc, onFailureCallbackFunc) {
     // Get the TEXT data from localStorage.
+    let textData = localStorage.getItem(DEALS_KEY);
 
     // If TEXT data is null:
-    // a. Create an empty ARRAY
+    if (textData === null) {
+        // a. Create an empty ARRAY
+        const emptyArray = [];
 
-    // b. Convert the ARRAY to TEXT
+        // b. Convert the ARRAY to TEXT
+        textData = JSON.stringify(emptyArray)
 
-    // c. Save the TEXT to localStorage
-
-    // d. Set the TEXT to be empty
+        // c. Save the TEXT to localStorage
+        localStorage.setItem(DEALS_KEY, textData)
+    }
 
     // Convert the TEXT to ARRAY
+    const arrayData = JSON.parse(textData);
 
-    // Return our ARRAY
+    const responseData = {
+        results: arrayData,
+    };
+    onSuccessCallbackFunc(responseData);
 }
 
 export function getDealDetail(id, onSuccessCallbackFunc, onFailureCallbackFunc) {
