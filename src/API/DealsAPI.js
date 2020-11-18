@@ -39,7 +39,20 @@ export function postCreateDeal(postData, onSuccessCallbackFunc, onFailureCallbac
 }
 
 export function getListDeals(onSuccessCallbackFunc, onFailureCallbackFunc) {
-    //TODO
+    // Get the TEXT data from localStorage.
+
+    // If TEXT data is null:
+    // a. Create an empty ARRAY
+
+    // b. Convert the ARRAY to TEXT
+
+    // c. Save the TEXT to localStorage
+
+    // d. Set the TEXT to be empty
+
+    // Convert the TEXT to ARRAY
+
+    // Return our ARRAY
 }
 
 export function getDealDetail(id, onSuccessCallbackFunc, onFailureCallbackFunc) {
