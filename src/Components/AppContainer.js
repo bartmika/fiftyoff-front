@@ -6,6 +6,7 @@ import LoginContainer from "./LoginContainer";
 import RegisterContainer from "./RegisterContainer";
 import DashboardContainer from "./DashboardContainer";
 import AddDealContainer from "./AddDealContainer";
+import DealDetailContainer from "./DealDetailContainer";
 
 
 class AppContainer extends Component {
@@ -17,6 +18,7 @@ class AppContainer extends Component {
                 <Route path="/register" exact component={RegisterContainer} />
                 <Route path="/dashboard" exact component={DashboardContainer} />
                 <Route path="/deals/add"exact component={AddDealContainer} />
+                <Route path="/deals/:id"exact component={DealDetailContainer} />
             </Router>
         );
     }
