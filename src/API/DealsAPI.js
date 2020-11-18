@@ -70,15 +70,32 @@ export function getListDeals(onSuccessCallbackFunc, onFailureCallbackFunc) {
 
 export function getDealDetail(id, onSuccessCallbackFunc, onFailureCallbackFunc) {
     // Get the TEXT data from the localStorage
+    let textData = localStorage.getItem(DEALS_KEY);
 
     // If TEXT data is null then:
-    // a. Create an empty ARRAY data
-    // b. Set the TEXT data to be the converted ARRAY (JSON.parse)
-    // c. Save the TEXT to localStorage
+    if (textData === null) {
+        // a. Create an empty ARRAY data
+        const emptyArrayData = [];
+
+        // b. Set the TEXT data to be the converted ARRAY (JSON.stringify)
+        textData = JSON.stringify(emptyArrayData)
+
+        // c. Save the TEXT to localStorage
+        localStorage.setItem(DEALS_KEY, textData);
+    }
 
     // Convert the TEXT data to ARRAY data.
+    const arrayData = JSON.parse(textData);
 
     // Iterate through all of the deals in our local storage
-    // If the id match, run "onSuccessCallbackFunc" and return the found object.
+    for (let obj of arrayData) {
+        // If the id match, run "onSuccessCallbackFunc" and return the found object.
+        if (obj.id === id) {
+            onSuccessCallbackFunc(obj);
+            return;
+        }
+    }
+
     // If no match was made from the entire array then call the "onFailureCallbackFunc"
+    onFailureCallbackFunc(null);
 }

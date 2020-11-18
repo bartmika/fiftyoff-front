@@ -20,11 +20,14 @@ class DealDetailContainer extends Component {
     }
 
     onSuccessCallbackFunc(responseData) {
-        //TODO
+        console.log("BACKEND SERVER RETURNED:", responseData);
+        this.setState({
+            dealDetail: responseData,
+        });
     }
 
     onFailureCallbackFunc(responseData) {
-        //TODO
+        console.log("BACKEND SERVER RETURNED:", responseData);
     }
 
     render() {

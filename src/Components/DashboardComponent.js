@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 function DealsItem(props) {
     const { id, percentOff, productName } = props.item;
     return (
-        <tr>
+        <tr key={id}>
            <td>{productName}</td>
            <td>{percentOff}%</td>
            <td>
-               <Link to={`/deals/${id}`}>View</Link>
+               <Link to={`/deal/${id}`}>View</Link>
            </td>
         </tr>
     );

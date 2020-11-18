@@ -18,7 +18,7 @@ class AppContainer extends Component {
                 <Route path="/register" exact component={RegisterContainer} />
                 <Route path="/dashboard" exact component={DashboardContainer} />
                 <Route path="/deals/add"exact component={AddDealContainer} />
-                <Route path="/deals/:id"exact component={DealDetailContainer} />
+                <Route path="/deal/:id"exact component={DealDetailContainer} />
             </Router>
         );
     }
