@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 
 
 function AddDealComponent(props) {
+    const {
+        productName, percentOff, storeName, address, onProductNameChange,
+         onPercentOffChange, onStoreNameChange, onAddressChange, onSubmitClick
+     } = props;
     return (
         <>
             <h1>Add New Deal</h1>
@@ -10,30 +14,37 @@ function AddDealComponent(props) {
             <input id="product_name"
                  name="product_name"
           placeholder="Product Name"
-             onChange={null}
-                 type="text" />
+             onChange={onProductNameChange}
+                 type="text"
+                 value={productName}
+            />
             <br />
             <input id="percent_off"
                  name="percent_off"
           placeholder="Percent Off"
-             onChange={null}
-                 type="text" />
+             onChange={onPercentOffChange}
+                 type="text"
+                 value={percentOff}
+                  />
             <br />
             <input id="store"
                  name="store"
           placeholder="Name of Store"
-             onChange={null}
-                 type="text" />
+             onChange={onStoreNameChange}
+             value={storeName}
+                 type="text"
+                 />
             <br />
             <input id="address"
                  name="address"
           placeholder="Address"
-             onChange={null}
+             onChange={onAddressChange}
+             value={address}
                  type="text" />
             <br /><br />
             <button id="add"
                   type="button"
-                  onClick={null}>Submit
+                  onClick={onSubmitClick}>Submit
             </button>
 
             <br />

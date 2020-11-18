@@ -1,12 +1,16 @@
+const DEALS_KEY = "deals_data";
 
-function postDeal(postData, onSuccessCallbackFunc, onFailureCallbackFunc) {
+
+export function postCreateDeal(postData, onSuccessCallbackFunc, onFailureCallbackFunc) {
+    console.log("Starting postCreateDeal...");
+
+    
+}
+
+export function getListDeals(onSuccessCallbackFunc, onFailureCallbackFunc) {
     //TODO
 }
 
-function getListDeals(onSuccessCallbackFunc, onFailureCallbackFunc) {
-    //TODO
-}
-
-function getDealDetail(id, onSuccessCallbackFunc, onFailureCallbackFunc) {
+export function getDealDetail(id, onSuccessCallbackFunc, onFailureCallbackFunc) {
     //TODO
 }
