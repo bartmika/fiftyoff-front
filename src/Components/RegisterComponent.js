@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+
+import AnonNavbarComponent from "./AnonNavbarComponent";
 
 
 function RegisterComponent(props) {
     const { onSubmitClick, onUsernameChange, onPasswordChange, error, username, password } = props;
     return (
         <>
+        <AnonNavbarComponent />
             <h1>Register</h1>
             <input id="username"
             name="username"

@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import AuthNavbarComponent from "./AuthNavbarComponent";
 
 function DealDetailComponent(props) {
     const { dealDetail } = props;
     console.log(dealDetail)
     return (
         <>
+            <AuthNavbarComponent />
             <h1>Deal Details</h1>
             <br />
             <br />

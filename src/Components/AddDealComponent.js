@@ -1,6 +1,7 @@
 import React, { Component} from "react";
 import { Link } from "react-router-dom";
 
+import AuthNavbarComponent from "./AuthNavbarComponent";
 
 function AddDealComponent(props) {
     const {
@@ -9,6 +10,7 @@ function AddDealComponent(props) {
      } = props;
     return (
         <>
+            <AuthNavbarComponent />
             <h1>Add New Deal</h1>
             <p>Please fill out this form</p>
             <input id="product_name"

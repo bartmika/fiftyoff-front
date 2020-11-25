@@ -1,6 +1,8 @@
 import React, { Component} from "react";
 import { Link } from "react-router-dom";
 
+import AuthNavbarComponent from "./AuthNavbarComponent";
+
 
 function DealsItem(props) {
     const { id, percentOff, productName } = props.item;
@@ -46,6 +48,7 @@ function DashboardComponent(props) {
     const { dealsArray } = props;
     return (
         <>
+            <AuthNavbarComponent />
             <p>Dashboard</p>
             <Link to="/deals/add">Add New Deal</Link>
             <br />
