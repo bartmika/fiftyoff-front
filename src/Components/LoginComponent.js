@@ -3,44 +3,56 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 
 import AnonNavbarComponent from "./AnonNavbarComponent";
 
 function LoginComponent(props) {
-    const { username, password, onUsernameChange, onPasswordChange, onSubmitClick } = props;
+    const { username, password, error, onUsernameChange, onPasswordChange, onSubmitClick } = props;
+    const isInvalid = error !== "";
     return (
         <>
             <AnonNavbarComponent />
+            <br />
             <Container>
                 <Row>
+                    <Col>
+                    </Col>
+
+                    <Col>
+                        <h1>Login</h1>
+                        {isInvalid &&
+                            <div>
+                                <Alert variant="danger">Wrong username or password</Alert>
+                            </div>
+                        }
+                        <Form noValidate>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Username</Form.Label>
+    <Form.Control type="username" placeholder="Enter username" value={username} onChange={onUsernameChange} isInvalid={isInvalid} />
+  </Form.Group>
+
+  <Form.Group controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" placeholder="Password"  value={password}  onChange={onPasswordChange} isInvalid={isInvalid} />
+  </Form.Group>
+  <Button variant="primary" type="button" onClick={onSubmitClick}>
+    Submit
+  </Button>
+</Form>
+                        <br />
+                        <Link to="/register">Register</Link>
+                    </Col>
+
+                    <Col>
+                    </Col>
                 </Row>
             </Container>
 
 
-            <h1>login page</h1>
-            <input id="username"
-                 type="text"
-                 value={username}
-                 name="username"
-                 placeholder="username"
-                 onChange={onUsernameChange} />
-            <br />
-            <br />
-            <input id="password"
-                 type="password"
-                 value={password}
-                 name="password"
-                 placeholder="password"
-                 onChange={onPasswordChange} />
-            <br />
-            <br />
-            <button onClick={onSubmitClick}>Submit</button>
-            <br />
-            <br />
-            <Link to="/register">Register</Link>
-            <br />
-            <br />
-            <Link to="/">Back</Link>
+
         </>
     )
 }

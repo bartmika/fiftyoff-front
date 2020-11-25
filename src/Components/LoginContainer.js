@@ -9,6 +9,7 @@ class LoginContainer extends Component {
         this.state = {
             username: "",
             password: "",
+            error: "",
         };
         this.onUsernameChange = this.onUsernameChange.bind(this);
         this.onPasswordChange = this.onPasswordChange.bind(this);
@@ -22,7 +23,9 @@ class LoginContainer extends Component {
     }
 
     onFailure(responseData) {
-        alert(responseData.message);
+        this.setState({
+            error: responseData.message,
+        });
     }
 
     onUsernameChange(e) {
@@ -53,11 +56,12 @@ class LoginContainer extends Component {
     }
 
     render() {
-        const { username, password } = this.state;
+        const { username, password, error } = this.state;
         return (
             <LoginComponent
                 username={username}
                 password={password}
+                error={error}
                 onUsernameChange={this.onUsernameChange}
                 onPasswordChange={this.onPasswordChange}
                 onSubmitClick={this.onSubmitClick}
