@@ -7,7 +7,10 @@ class RegisterContainer extends Component {
         super(props);
         this.state = {
             username: "",
+            usernameError: "",
             password: "",
+            passwordError: "",
+            hasError: false,
             error: "",
         };
         this.onUsernameChange = this.onUsernameChange.bind(this);
@@ -31,15 +34,40 @@ class RegisterContainer extends Component {
 
     onSubmitClick(e) {
         const { username, password } = this.state;
+        let hasError = false;
         const postData = {
             username: username,
             password: password,
         };
-        postRegister(postData, this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
+        if (username === "") {
+            hasError = true;
+            this.setState({
+                usernameError: "Missing field",
+            });
+        } else {
+            this.setState({
+                usernameError: "",
+            });
+        }
+        if (password === "") {
+            hasError = true;
+            this.setState({
+                passwordError: "Missing field",
+            });
+        } else {
+            this.setState({
+                passwordError: "",
+            });
+        }
+
+        if (hasError) {
+            return;
+        } else {
+            postRegister(postData, this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
+        }
     }
 
     onSuccessCallbackFunc(responseData) {
-        alert(responseData.message);
         this.props.history.push("/dashboard");
     }
 
@@ -50,11 +78,13 @@ class RegisterContainer extends Component {
     }
 
     render() {
-        const { username, password, error } = this.state;
+        const { username, usernameError, password, passwordError, error } = this.state;
         return (
             <RegisterComponent
                username={username}
+               usernameError={usernameError}
                password={password}
+               passwordError={passwordError}
                error={error}
                onUsernameChange={this.onUsernameChange}
                onPasswordChange={this.onPasswordChange}

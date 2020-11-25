@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import Card from "react-bootstrap/Card";
 
 import AnonNavbarComponent from "./AnonNavbarComponent";
 
@@ -18,10 +19,11 @@ function LoginComponent(props) {
             <br />
             <Container>
                 <Row>
-                    <Col>
+                    <Col sm={3}>
                     </Col>
 
-                    <Col>
+                    <Col sm={6}>
+                        <Card body>
                         <h1>Login</h1>
                         {isInvalid &&
                             <div>
@@ -44,9 +46,10 @@ function LoginComponent(props) {
 </Form>
                         <br />
                         <Link to="/register">Register</Link>
+                        </Card>
                     </Col>
 
-                    <Col>
+                    <Col sm={3}>
                     </Col>
                 </Row>
             </Container>
